@@ -15,9 +15,30 @@ public class Exercises {
 	}
 	
 	public ArrayList<String> endsMeet(ArrayList<String> values, int n) {
-		// write your code here
-		
-		return null;	// default return value to ensure compilation
+		ArrayList<String> emptyList = new ArrayList<String>();
+		boolean emptyTest = true;
+    if ((values == null) || (values.length < n) || (n <= 0)){
+    	return emptyList;
+    }
+    ArrayList <String> returnEnds = new ArrayList<String>();
+		for (int i = 0; i <= n; i++) {
+      if (i > (values.size() - 1)) {
+        return emptyArray;
+      }
+      returnEnds.set(i, values.get(i));
+	    if (values.get(i) != null) {
+    		emptyTest = false;
+    		break;
+  	    }
+      }
+    for (int i = 0; i <= n; i++) {
+      returnEnds.set(returnEnds.size() + i, values.get((values.size() - n) + i));
+    }
+		  if (returnEnds == null || returnEnds.size() == 0 || emptyTest == true){
+        return emptyArray;
+      } else {
+        return returnEnds;
+      }
 	}
 	
 	public int difference(ArrayList<Integer> numbers) {
