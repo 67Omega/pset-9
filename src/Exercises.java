@@ -20,21 +20,13 @@ public class Exercises {
     	return emptyList;
     }
     ArrayList <String> returnEnds = new ArrayList<String>();
-
-		for (int i = 0; i < n; i++) {
-      if (i > (values.size())) {
-        return emptyList;
-      }
-      returnEnds.add(values.get(i));
-      }
-    for (int i = 0; i <= n; i++) {
-      returnEnds.add(values.get(values.size() + (i-n) - 1));
+    returnEnds.addAll(values.subList(0, n));
+    returnEnds.addAll(values.subList(values.size() - n, values.size()));
+		if (returnEnds == null || returnEnds.size() == 0){
+      return emptyList;
+    } else {
+      return returnEnds;
     }
-		  if (returnEnds == null || returnEnds.size() == 0){
-        return emptyList;
-      } else {
-        return returnEnds;
-      }
 	}
 	
 	public int difference(ArrayList<Integer> numbers) {
