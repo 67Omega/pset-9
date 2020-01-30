@@ -16,26 +16,22 @@ public class Exercises {
 	
 	public ArrayList<String> endsMeet(ArrayList<String> values, int n) {
 		ArrayList<String> emptyList = new ArrayList<String>();
-		boolean emptyTest = true;
-    if ((values == null) || (values.length < n) || (n <= 0)){
+    if ((values == null) || (values.size() < n) || (n <= 0)){
     	return emptyList;
     }
     ArrayList <String> returnEnds = new ArrayList<String>();
-		for (int i = 0; i <= n; i++) {
-      if (i > (values.size() - 1)) {
-        return emptyArray;
+
+		for (int i = 0; i < n; i++) {
+      if (i > (values.size())) {
+        return emptyList;
       }
-      returnEnds.set(i, values.get(i));
-	    if (values.get(i) != null) {
-    		emptyTest = false;
-    		break;
-  	    }
+      returnEnds.add(values.get(i));
       }
     for (int i = 0; i <= n; i++) {
-      returnEnds.set(returnEnds.size() + i, values.get((values.size() - n) + i));
+      returnEnds.add(values.get(values.size() + (i-n) - 1));
     }
-		  if (returnEnds == null || returnEnds.size() == 0 || emptyTest == true){
-        return emptyArray;
+		  if (returnEnds == null || returnEnds.size() == 0){
+        return emptyList;
       } else {
         return returnEnds;
       }
