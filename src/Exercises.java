@@ -30,9 +30,20 @@ public class Exercises {
 	}
 	
 	public int difference(ArrayList<Integer> numbers) {
-		// write your code here
-		
-		return -1;		// default return value to ensure compilation
+		if ((numbers == null) || (numbers.size() < 1)) {
+    	return -1;
+    }
+    int largeEnd = numbers.get(0);
+    int smallEnd = numbers.get(0);
+    for (int i = 1; i < numbers.size(); i++){
+      if (numbers.get(i) > largeEnd) {
+        largeEnd = numbers.get(i);
+      } else if (numbers.get(i) < smallEnd) {
+        smallEnd = numbers.get(i);
+      }
+    }
+    int difference = largeEnd - smallEnd;
+    return difference;
 	}
 	
 	public double biggest(ArrayList<Double> numbers) {
