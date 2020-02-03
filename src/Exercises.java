@@ -47,15 +47,47 @@ public class Exercises {
 	}
 	
 	public double biggest(ArrayList<Double> numbers) {
-		// write your code here
-		
-		return -1;		// default return value to ensure compilation
+		if ((numbers == null) || (numbers.size() < 3) || (numbers.size() % 2 == 0)) {
+    	return -1;
+    }
+    double greatest = -1;
+    for (int i = 0; i < numbers.size(); i++){
+      if (numbers.get(i) < 0) {
+        return greatest;
+      }
+    }
+    double frontEnd = numbers.get(0);
+    double backEnd = numbers.get(numbers.size() - 1);
+    double midCheck = numbers.get((numbers.size() / 2));
+    if ((frontEnd > backEnd) && (frontEnd > midCheck)) {
+      greatest = frontEnd;
+    } else if ((backEnd > frontEnd) && (backEnd > midCheck)) {
+      greatest = backEnd;
+    } else if ((midCheck > frontEnd) && (midCheck > backEnd)){
+      greatest = midCheck;
+    } else if ((backEnd == frontEnd) && (frontEnd == midCheck)){
+greatest = midCheck;
+}
+    return greatest;
 	}
 	
 	public ArrayList<String> middle(ArrayList<String> values) {
-		// write your code here
-		
-		return null;	// default return value to ensure compilation
+		ArrayList <String> midThree = new ArrayList<String>();
+    if ((values == null) || (values.size() < 3) || (values.size() % 2 == 0)) {
+    	return midThree;
+    }
+    for (int i = 0; i < values.size(); i++){
+      if (values.get(i) == null) {
+        return midThree;
+      }
+    }
+    String middle = values.get((values.size() / 2));
+    String middleMinus = values.get((values.size() / 2) - 1);
+    String middlePlus = values.get((values.size() / 2) + 1);
+    midThree.add(middleMinus);
+    midThree.add(middle);
+    midThree.add(middlePlus);
+    return midThree;
 	}
 
 	public boolean increasing(ArrayList<Integer> numbers) {
